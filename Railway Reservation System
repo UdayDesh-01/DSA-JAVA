@@ -1,0 +1,62 @@
+ //Railway Reservation System.
+
+class RailwayReservation {
+    
+    // Node class for Linked List
+    static class Node {
+        int seatNo;
+        Node next;
+        
+        Node(int seatNo) {
+            this.seatNo = seatNo;
+            this.next = null;
+        }
+    }
+    
+    // Head of the list
+    Node head;
+    
+    // Method to add new seat at the end
+    public void reserveSeat(int seatNo) {
+        Node newNode = new Node(seatNo);
+        
+        if (head == null) {
+            head = newNode;
+            return;
+        }
+        
+        Node temp = head;
+        while (temp.next != null) {
+            temp = temp.next;
+        }
+        temp.next = newNode;
+    }
+    
+    // Method to display seat list
+    public void displaySeats() {
+        Node temp = head;
+        while (temp != null) {
+            System.out.print(temp.seatNo + " → ");
+            temp = temp.next;
+        }
+        System.out.println("NULL");
+    }
+    
+    public static void main(String[] args) {
+        RailwayReservation rr = new RailwayReservation();
+        
+        // Initial seats
+        rr.reserveSeat(1144);
+        rr.reserveSeat(5513);
+        rr.reserveSeat(6814);
+        
+        System.out.println("Initial Seat List:");
+        rr.displaySeats();
+        
+        // Adding a new seat (Reservation)
+        rr.reserveSeat(7520);
+        System.out.println("After Adding New Seat:");
+        rr.displaySeats();
+    }
+}
+
