@@ -1,0 +1,47 @@
+Differenece of avg(top3 - bottom3)
+
+public class StudentMarks {
+    public static void main(String[] args) {
+    
+        int[] marks = {78, 93, 62, 15, 81, 94, 71, 89};
+
+        //  Sort the array using Bubble Sort
+        bubbleSort(marks);
+
+        //  Display sorted array
+        System.out.print("Sorted Marks: ");
+        for (int mark : marks) {
+            System.out.print(mark + " ");
+        }
+        System.out.println();
+
+        
+        double bottomAvg = (marks[0] + marks[1] + marks[2]) / 3.0;
+
+        // Step 5: Calculate average of top 3
+        int n = marks.length;
+        double topAvg = (marks[n - 1] + marks[n - 2] + marks[n - 3]) / 3.0;
+
+        // Step 6: Find difference
+        double diff = topAvg - bottomAvg;
+
+        // Step 7: Print results
+        System.out.println("Average of Bottom 3 = " + bottomAvg);
+        System.out.println("Average of Top 3 = " + topAvg);
+        System.out.println("Difference = " + diff);
+    }
+
+    public static void bubbleSort(int[] arr) {
+        int n = arr.length;
+        for (int i = 0; i < n - 1; i++) {
+            for (int j = 0; j < n - i - 1; j++) {
+                if (arr[j] > arr[j + 1]) {
+                    // swap arr[j] and arr[j+1]
+                    int temp = arr[j];
+                    arr[j] = arr[j + 1];
+                    arr[j + 1] = temp;
+                }
+            }
+        }
+    }
+}
