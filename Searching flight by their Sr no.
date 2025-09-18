@@ -1,0 +1,62 @@
+// Searching the flight no.
+
+public class FlightSearch {
+    
+    // Bubble Sort method
+    public static void bubbleSort(int[] arr) {
+        int n = arr.length;
+        for (int i = 0; i < n - 1; i++) {
+            for (int j = 0; j < n - i - 1; j++) {
+                if (arr[j] > arr[j + 1]) {
+                    // swap arr[j] and arr[j+1]
+                    int temp = arr[j];
+                    arr[j] = arr[j + 1];
+                    arr[j + 1] = temp;
+                }
+            }
+        }
+    }
+    
+    // Binary Search method (using left and right instead of low/high)
+    public static int binarySearch(int[] arr, int key) {
+        int left = 0, right = arr.length - 1;
+        
+        while (left <= right) {
+            int mid = left + (right - left) / 2;
+            
+            if (arr[mid] == key) {
+                return mid;  // Found
+            } else if (arr[mid] < key) {
+                left = mid + 1;
+            } else {
+                right = mid - 1;
+            }
+        }
+        return -1; // Not found
+    }
+
+    public static void main(String[] args) {
+        int[] flights = {301, 445, 112, 938, 619, 718, 231};
+        int[] searchFlights = {301, 117, 112};
+        
+        // Sort using Bubble Sort
+        bubbleSort(flights);
+        
+        // Display sorted flights
+        System.out.print("Sorted flights: ");
+        for (int f : flights) {
+            System.out.print(f + " ");
+        }
+        System.out.println();
+        
+        // Search for each flight number
+        for (int flight : searchFlights) {
+            int result = binarySearch(flights, flight);
+            if (result != -1) {
+                System.out.println("Flight " + flight + " FOUND at index " + result);
+            } else {
+                System.out.println("Flight " + flight + " NOT FOUND");
+            }
+        }
+    }
+}
