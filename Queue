@@ -1,0 +1,77 @@
+class Queue
+{
+int QueueArray[];         // we made a queue in which there is a person at front and one at back= rear;
+int front;
+int rear;                //  
+int count;
+int maxsize;
+
+Queue (int size)
+{
+max size = size;
+QueueArray = new int [max size];
+front =0;
+rear =-1;
+count =0;
+}
+public void enQueue(int val)
+{
+if(rear==maxsize-1)
+{
+System.out.println("Queue is full");
+}
+else
+{
+rear = (rear+1)%maxSize;
+QueueArray[rear]=value;
+System.out.println(value+ "is inserted in Queue");
+cout++;
+}
+}
+public void deQueue
+{
+if (arr == -1)
+{
+System.out.println("Queue is empty");
+}
+else
+{
+System.out.println(QueueArray[front] + "is sorted");
+front = (front + i) % maxsize;
+cout--;
+
+}
+}
+public void display()
+{
+if(rear==-1)
+{
+System.out.println("Queue is empty"):
+}
+else
+{
+for(int i=0;i<count;i++)
+{
+int index = (front +i)%maxSize;
+System.out.println(Queue Array[index] + "\t");
+}
+}
+}
+}
+
+class QueueDemo
+{
+public static void main(String Args[])
+{
+Queue q1 = new Queue(s);
+q1.enQueue(10);
+q1.enQueue(20);
+q1.enQueue(30);
+q1.enQueue(40);
+q1.DeQueue();
+
+q1.display();
+
+
+}
+}
